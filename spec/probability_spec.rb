@@ -21,20 +21,18 @@ end
 
 RSpec.describe Probability, '#get_probability' do
   context 'given lesser number of args' do
-    it 'should throw an ArgumentError' do
-      expect {
+    it 'will throw no error' do
         probability = Probability.new(0, 1, 2, 3, 4, 5, 6)
-      }.to raise_error(ArgumentError)
+        expect(probability).to be_a Probability
     end
   end
 end
 
 RSpec.describe Probability, '#get_probability' do
   context 'given more number of args' do
-    it 'should throw an ArgumentError' do
-      expect {
+    it 'will throw no error' do
         probability = Probability.new(0, 1, 2, 3, 4, 5, 6, 7, 8)
-      }.to raise_error(ArgumentError)
+        expect(probability).to be_a Probability
     end
   end
 end
