@@ -4,14 +4,11 @@ require_relative 'team.rb'
 require_relative 'match.rb'
 require_relative 'batsman.rb'
 require_relative 'scorecard.rb'
-require_relative 'umpire.rb'
 require_relative 'weighted_random_generator.rb'
 
 random_generator = RandomGenerator.new
 
 scorecard = Scorecard.new
-
-umpire = Umpire.new
 
 batsman1 = Batsman.new('Kirat Boli', Probability.new(5, 10, 25, 10, 25, 1, 14, 10))
 batsman2 = Batsman.new('NS Nodhi', Probability.new(5, 15, 15, 10, 20, 1, 19, 15))
@@ -22,7 +19,7 @@ batsman4 = Batsman.new('H Mamla', Probability.new(10, 15, 15, 10, 20, 1, 19, 15)
 team2 = Team.new('Team 2', batsman3, batsman4, 6)
 team2.chasing? true
 
-match = Match.new(team1, team2, umpire, scorecard)
+match = Match.new(team1, team2, scorecard)
 
 match.get_batting_team_order.each do |team|
   team.get_remaining_balls.times do |ball|
@@ -49,6 +46,7 @@ else
 end
 
 match.get_batting_team_order.each do |team|
+  puts ""
   puts "#{team.get_name} innings:"
   scorecard.get_scorecard(team.get_all_players)
 end

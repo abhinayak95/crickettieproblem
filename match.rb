@@ -1,9 +1,8 @@
 class Match
-  attr_accessor :team1, :team2, :umpire, :scorecard, :batting_team_order, :target_score
-  def initialize(team1, team2, umpire, scorecard)
+  attr_accessor :team1, :team2, :scorecard, :batting_team_order, :target_score
+  def initialize(team1, team2, scorecard)
     @team1 = team1
     @team2 = team2
-    @umpire = umpire
     @scorecard = scorecard
     @batting_team_order = [@team1, @team2]
   end

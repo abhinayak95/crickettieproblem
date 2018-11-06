@@ -12,6 +12,10 @@ class Team
     self.batsmen_batting_order(players)
   end
 
+  def get_name
+    @name
+  end
+  
   def batsmen_batting_order(batsmen_batting_order)
     @batsmen_batting_order = batsmen_batting_order.each()
     @batsmen_scorecard = batsmen_batting_order.each()
@@ -62,7 +66,4 @@ class Team
     @on_strike = (@on_strike.to_i + 1) % 2
   end
 
-  def get_name
-    @name
-  end
 end
