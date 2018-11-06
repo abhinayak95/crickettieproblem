@@ -22,7 +22,7 @@ batsman4 = Batsman.new('H Mamla', Probability.new(10, 15, 15, 10, 20, 1, 19, 15)
 team2 = Team.new('Team 2', batsman3, batsman4, 6)
 team2.chasing? true
 
-match = Match.new(team1, team2, umpire, scorecard, 6)
+match = Match.new(team1, team2, umpire, scorecard)
 
 match.get_batting_team_order.each do |team|
   team.get_remaining_balls.times do |ball|
@@ -31,7 +31,7 @@ match.get_batting_team_order.each do |team|
       team.get_batsman_on_strike.out? true;
       team.get_batsman_on_strike.add_runs(0)
       team.next_batsman
-      break if team.get_remaining_wickets == 0
+      break
     else
       team.get_batsman_on_strike.add_runs(result)
       team.increase_score(result)
@@ -42,12 +42,13 @@ match.get_batting_team_order.each do |team|
   match.set_target_score(team.get_runs_scored + 1) unless team.chasing
 end
 
-match.get_batting_team_order.each do |team|
-  scorecard.get_scorecard(team.get_all_players)
-end
-
 if team2.get_runs_scored - match.get_target_score >= 0
   puts "#{team2.get_name} won with #{team2.get_remaining_balls()} balls remaining"
 else
-  puts "#{team1.get_name} won by #{match.get_target_score - team2.get_runs_scored - 1}"
+  puts "#{team1.get_name} won by #{match.get_target_score - team2.get_runs_scored - 1} runs"
+end
+
+match.get_batting_team_order.each do |team|
+  puts "#{team.get_name} innings:"
+  scorecard.get_scorecard(team.get_all_players)
 end

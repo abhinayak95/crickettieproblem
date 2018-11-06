@@ -20,7 +20,7 @@ RSpec.describe Match, '#' do
       team1 = Team.new('Team 1', batsman1, batsman3, 6)
       team2 = Team.new('Team 2', batsman2, batsman4, 6)
       team2.chasing? true
-      match = Match.new(team1, team2, umpire, scorecard, 6)
+      match = Match.new(team1, team2, umpire, scorecard)
       expect(match).to be_a Match
     end
   end

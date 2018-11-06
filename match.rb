@@ -1,11 +1,10 @@
 class Match
   attr_accessor :team1, :team2, :umpire, :scorecard, :batting_team_order, :target_score
-  def initialize(team1, team2, umpire, scorecard, balls_remaining)
+  def initialize(team1, team2, umpire, scorecard)
     @team1 = team1
     @team2 = team2
     @umpire = umpire
     @scorecard = scorecard
-    @balls_remaining = balls_remaining
     @batting_team_order = [@team1, @team2]
   end
 
